@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIK TOE GAME</title>
+    <style>
+        #gamebox {
+            background-color: white;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .box {
+            background-color: white;
+            border: 2px solid black;
+            height: 10vh;
+            width: 10vh;
+            font-size: 50px;
+            padding: 40px;
+        }
+
+        #one {
+            border-top: none;
+            border-left: none;
+        }
+
+        #two {
+            border-top: none;
+        }
+
+        #three {
+            border-top: none;
+            border-right: none;
+        }
+
+        #four {
+            border-left: none;
+        }
+
+        #six {
+            border-right: none;
+        }
+
+        #seven {
+            border-left: none;
+            border-bottom: none;
+        }
+
+        #eight {
+            border-bottom: none
+        }
+
+        #nine {
+            border-bottom: none;
+            border-right: none;
+        }
+
+        #xturn {
+            background-color: orange;
+            font-size: 5vh;
+            border: 2px solid black;
+            border-radius: 30px;
+            position: absolute;
+            right: 10%;
+        }
+
+        #reset {
+            background-color: aqua;
+            font-size: 5vh;
+            border: 2px solid black;
+            border-radius: 30px;
+            position: absolute;
+            left: 10%;
+
+        }
+
+        .header {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <header>
+            <h1>TIC TACK TOE GAME</h1>
+        </header>
+    </div>
+    <div id="gamebox">
+        <div class="box" id="one"></div>
+        <div class="box" id="two"></div>
+        <div class="box" id="three"></div>
+        <div class="box" id="four"></div>
+        <div class="box" id="five"></div>
+        <div class="box" id="six"></div>
+        <div class="box" id="seven"></div>
+        <div class="box" id="eight"></div>
+        <div class="box" id="nine"></div>
+    </div>
+
+    <div id="display">
+        <button id="xturn">TURN O</button>
+
+    </div>
+    <div id="gameover"></div>
+    <div id="reseting">
+
+        <button id="reset">RESET</button>
+    </div>
+
+    <script>
+        let gameover = document.getElementById("gameover");
+        let box = document.getElementsByClassName("box")
+        let xturn = document.getElementById("xturn");
+        let reset = document.getElementById("reset");
+        let tupple = "X";
+        xturn.addEventListener("click", switchChance);
+        function switchChance() {
+            if (tupple == "X") {
+                tupple = "O";
+            } else {
+                tupple = "X";
+            }
+            xturn.innerHTML = "TURN " + (tupple == "X" ? "O" : "X");
+        }
+        Array.from(box).forEach((item) => {
+            item.addEventListener("click", abc)
+        })
+        function abc() {
+
+            this.innerHTML = tupple;
+            let one = document.getElementById("one").innerHTML;
+            let two = document.getElementById("two").innerHTML;
+            let three = document.getElementById("three").innerHTML;
+            let four = document.getElementById("four").innerHTML;
+            let five = document.getElementById("five").innerHTML;
+            let six = document.getElementById("six").innerHTML;
+            let seven = document.getElementById("seven").innerHTML;
+            let eight = document.getElementById("eight").innerHTML;
+            let nine = document.getElementById("nine").innerHTML;
+
+            if (one == "X" & two == "X" & three == "X") {
+                xwon()
+            }
+            else if (one == "O" & two == "O" & three == "O") {
+                owon()
+            }
+            else if (one == "X" & four == "X" & seven == "X") {
+                xwon()
+            }
+            else if (one == "O" & four == "O" & seven == "O") {
+                owon()
+            }
+            else if (one == "X" & five == "X" & nine == "X") {
+                xwon()
+            }
+            else if (one == "O" & five == "O" & nine == "O") {
+                owon()
+            }
+            else if (two == "X" & five == "X" & eight == "X") {
+                xwon()
+            }
+            else if (two == "O" & five == "O" & eight == "O") {
+                owon()
+            }
+            else if (three == "X" & six == "X" & nine == "X") {
+                xwon()
+            }
+            else if (three == "O" & six == "O" & nine == "O") {
+                owon()
+            }
+            else if (four == "X" & five == "X" & six == "X") {
+                xwon()
+            }
+            else if (four == "O" & five == "O" & six == "O") {
+                owon()
+            }
+            else if (seven == "X" & eight == "X" & nine == "X") {
+                xwon()
+            }
+            else if (seven == "O" & eight == "O" & nine == "O") {
+                owon()
+            }
+            else if (three == "X" & five == "X" & seven == "X") {
+                xwon()
+            }
+            else if (three == "O" & five == "O" & seven == "O") {
+                owon()
+            }
+
+        }
+        function xwon() {
+            gameover.innerHTML = "X WINS GAMEOVER"
+            gameover.style.backgroundColor = "white"
+            gameover.style.height = "85vh"
+            gameover.style.width = "80vh"
+            gameover.style.position = "absolute"
+            gameover.style.top = "0%"
+            gameover.style.right = "30%"
+            gameover.style.fontSize = "5vh"
+            gameover.style.display = "flex"
+            gameover.style.alignItems = "center"
+            gameover.style.justifyContent = "center"
+
+
+
+        }
+        function owon() {
+            gameover.innerHTML = "O WINS GAMEOVER"
+            gameover.style.backgroundColor = "white"
+            gameover.style.height = "85vh"
+            gameover.style.width = "80vh"
+            gameover.style.position = "absolute"
+            gameover.style.top = "0%"
+            gameover.style.right = "30%"
+            gameover.style.fontSize = "5vh"
+            gameover.style.display = "flex"
+            gameover.style.alignItems = "center"
+            gameover.style.justifyContent = "center"
+        }
+
+        reset.addEventListener("click", setting)
+        function setting() {
+
+            gameover.innerHTML = "";
+            gameover.style.height = "0%"
+            document.querySelectorAll(".box")
+            Array.from(box).forEach((element) => {
+                element.innerHTML = ""
+            }
+            )
+
+
+
+        }
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
