@@ -23,6 +23,33 @@
             font-size: 50px;
             padding: 40px;
         }
+        @media screen and (max-width:1200px) and (min-width:700px){
+            .box{
+                height:7vh;
+                width: 7vh;
+                
+                padding: 30px;
+            }
+            
+        }
+        @media screen and (max-width:700px) and (min-width:500px){
+            .box{
+                height:5vh;
+                width: 5vh;
+                font-size: 25px;
+                padding: 25px;color: blue;
+            }
+            
+        }
+        @media screen and (max-width:500px) and (min-width:250px){
+            .box{
+                height:3.5vh;
+                width: 3.5vh;
+                font-size: 20px;
+                padding: 20px;
+            }
+            
+        }
 
         #one {
             border-top: none;
@@ -66,8 +93,35 @@
             border: 2px solid black;
             border-radius: 30px;
             position: absolute;
-            right: 10%;
+            right: 20%;
         }
+        @media screen and (max-width:1200px) and (min-width:700px){
+            #xturn {
+            
+            font-size:3.5vh;
+            border: radius 25px;
+            top:85vh;
+            }
+            
+        }
+        @media screen and (max-width:700px) and (min-width:500px){
+            #xturn {
+            
+            font-size:3vh;
+            border: radius 2px;
+            top:85vh;
+            }
+            
+        }   @media screen and (max-width:500px) and (min-width:250px){
+            #xturn {
+            
+            font-size:2.5vh;
+            border: radius 1.5px;
+            top:85vh;
+            }
+            
+        }
+
 
         #reset {
             background-color: aqua;
@@ -75,9 +129,42 @@
             border: 2px solid black;
             border-radius: 30px;
             position: absolute;
-            left: 10%;
+            left: 20%;
 
         }
+        @media screen and (max-width:1200px) and (min-width:700px){
+            #reset {
+            
+                  
+            font-size:3.5vh;
+            border: radius 25px;
+            top:85vh;
+            }
+            
+        }
+        @media screen and (max-width:700px) and (min-width:500px){
+            #reset {
+            
+               
+                   
+            font-size:3vh;
+            border: radius 2px;
+            top:85vh;
+            }
+            
+        } 
+         @media screen and (max-width:500px) and (min-width:250px){
+            #reset {
+            
+            font-size:2.5vh;
+            border: radius 1.5px;
+            top:85vh;
+            }
+            
+        }
+
+      
+
 
         .header {
             text-align: center;
@@ -197,11 +284,11 @@
         function xwon() {
             gameover.innerHTML = "X WINS GAMEOVER"
             gameover.style.backgroundColor = "white"
-            gameover.style.height = "85vh"
-            gameover.style.width = "80vh"
+            gameover.style.height = "100vh"
+            gameover.style.width = "100vw"
             gameover.style.position = "absolute"
             gameover.style.top = "0%"
-            gameover.style.right = "30%"
+            // gameover.style.right = "30%"
             gameover.style.fontSize = "5vh"
             gameover.style.display = "flex"
             gameover.style.alignItems = "center"
@@ -213,11 +300,12 @@
         function owon() {
             gameover.innerHTML = "O WINS GAMEOVER"
             gameover.style.backgroundColor = "white"
-            gameover.style.height = "85vh"
-            gameover.style.width = "80vh"
+            
+            gameover.style.height = "100vh"
+            gameover.style.width = "100vw"
             gameover.style.position = "absolute"
             gameover.style.top = "0%"
-            gameover.style.right = "30%"
+            // gameover.style.right = "45%"
             gameover.style.fontSize = "5vh"
             gameover.style.display = "flex"
             gameover.style.alignItems = "center"
